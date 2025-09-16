@@ -30,13 +30,26 @@ const InfiniteScrollingGallery: React.FC = () => {
     return (    
         <div className={styles.infiniteScrollingGallery}>
             <div className={styles.infiniteScrollingGalleryImages}>
-                {images.map((image) => (
-                    <img src={image.src} alt={image.alt} />
+                {images.map((image, index) => (
+                    <img 
+                        key={index}
+                        src={image.src} 
+                        alt={image.alt}
+                        width={80}
+                        loading="lazy"
+                    />
                 ))}
             </div>
             <div className={styles.infiniteScrollingGalleryImages}>
-                {images.map((image) => (
-                    <img src={image.src} alt={image.alt} aria-hidden="true" />
+                {images.map((image, index) => (
+                    <img 
+                        key={`duplicate-${index}`}
+                        src={image.src} 
+                        alt={image.alt} 
+                        width={80}
+                        loading="lazy"
+                        aria-hidden="true" 
+                    />
                 ))}
             </div>
         </div>

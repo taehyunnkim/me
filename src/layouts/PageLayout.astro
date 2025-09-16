@@ -1,15 +1,8 @@
 ---
 import NavigationHeader from '@/components/nav/NavigationHeader';
-import Footer from '@/components/layout/Footer';
 
 const { activePath } = Astro.props;
 
-// Generate build time dynamically
-const buildTime = new Date().toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-});
 ---
 
 <div class="master-container">
@@ -17,7 +10,6 @@ const buildTime = new Date().toLocaleDateString('en-US', {
     <div class="page-container">
         <slot />
     </div>
-    <Footer buildTime={buildTime} client:load />
 </div>
 
 <style>

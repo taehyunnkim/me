@@ -7,6 +7,7 @@ import ExperienceCarousel from '@/components/carousel/ExperienceCarousel';
 import profile from '@/assets/profile.jpg';
 import TextButton from '@/components/TextButton';
 import ContactSection from '@/components/contact/ContactSection';
+import { Image } from 'astro:assets';
 ---
 
 <RootLayout title="TaeHyun Kim">
@@ -32,7 +33,12 @@ import ContactSection from '@/components/contact/ContactSection';
 						keeps those systems secure and resilient.
 					</p>
 				</div>
-				<img src={profile.src} alt="profile" />
+				<img 
+					src={profile.src} 
+					alt="profile" 
+					width={250} 
+					height={310}
+				/>
 			</div>
 		</section>
 		<section>
@@ -80,8 +86,6 @@ import ContactSection from '@/components/contact/ContactSection';
 	}
 
 	.intro-container img {
-		width: 250px;
-		height: 300px;
 		object-fit: cover;
 		border-radius: var(--radius);
 	}

@@ -1,6 +1,8 @@
 .contactSection {
+    position: relative;
     width: 100%;
-    padding: 80px 0 0 0;
+    padding: 300px 0 40px 0;
+    margin-top: 100px;
 }
 
 .contactTitle {
@@ -60,6 +62,34 @@
     border-radius: 2px;
 }
 
+.contactImageSurfBoard {
+    position: absolute;
+    top: 100px;
+    left: -160px;
+    width: 400px;
+}
+
+.contactImageBoxing {
+    position: absolute;
+    bottom: 50px;
+    left: -153px;
+    width: 140px;
+}
+
+.contactContent {
+    position: relative;
+    z-index: 2;
+}
+
+/* Album grid decoration */
+.albumGridDecoration {
+    position: absolute;
+    bottom: 100px;
+    right: -100px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .contactTitle {
@@ -73,5 +103,10 @@
     
     .contactDescription {
         font-size: 14px;
+    }
+    
+    /* Hide album grid on mobile for cleaner look */
+    .albumGridDecoration {
+        display: none;
     }
 }

@@ -1,7 +1,7 @@
 .footer {
     width: 100%;
     border-top: 1px solid var(--border-color);
-    background: white;
+    background: rgb(247, 247, 247);
     margin-top: 60px;
 }
 
