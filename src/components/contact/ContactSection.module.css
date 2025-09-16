@@ -1,0 +1,77 @@
+.contactSection {
+    width: 100%;
+    padding: 80px 0 0 0;
+}
+
+.contactTitle {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--black);
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.contactDescription {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--black);
+    margin: 0 0 40px 0;
+    max-width: 600px;
+}
+
+.contactInfo {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.contactItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contactLabel {
+    font-size: 16px;
+    font-weight: 600;
+    color: #888;
+    margin: 0;
+    text-transform: none;
+}
+
+.contactLink {
+    font-size: 16px;
+    color: var(--black);
+    text-decoration: underline;
+    text-decoration-color: #ccc;
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+.contactLink:hover {
+    text-decoration-color: var(--black);
+    color: var(--primary);
+}
+
+.contactLink:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .contactTitle {
+        font-size: 36px;
+    }
+    
+    .contactInfo {
+        flex-direction: column;
+        gap: 24px;
+    }
+    
+    .contactDescription {
+        font-size: 14px;
+    }
+}

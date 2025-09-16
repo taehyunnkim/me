@@ -1,0 +1,43 @@
+.navigationHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 108px;
+    border: 1px solid var(--border-color);
+    padding: 0 24px;
+    border-radius: var(--radius);
+    background-color: white;
+}
+
+.navigationHeaderLogo {
+    width: 80px;
+    height: 80px;
+}
+
+.navigationHeaderList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    list-style: none;
+}
+
+.navigationHeaderList li {
+    margin-left: 20px;
+}
+
+.navigationHeaderList li a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 300;
+    transition: all 0.2s ease;
+}
+
+.navigationHeaderList li a:hover {
+    color: var(--primary);
+}
+
+.navigationHeaderList li a.active {
+    font-weight: 600;
+}

@@ -1,0 +1,37 @@
+.skillCard {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 20px;
+    background: white;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skillCardEmpty {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    height: 160px;
+    background: white;
+}
+
+.skillTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--black);
+    margin: 0;
+}
+
+.skillItems {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.skillItem {
+    font-size: 14px;
+    color: #666;
+    font-weight: 400;
+}

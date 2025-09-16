@@ -1,0 +1,54 @@
+.infiniteScrollingGallery {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding: 24px 0px;
+}
+
+.infiniteScrollingGallery::before,
+.infiniteScrollingGallery::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.infiniteScrollingGallery::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.infiniteScrollingGallery::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.infiniteScrollingGallery img {
+    width: 80px;
+}
+
+.infiniteScrollingGalleryImages {
+    padding-left: 100px;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

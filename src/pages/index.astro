@@ -1,11 +1,95 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import RootLayout from '@/layouts/RootLayout.astro';
+import PageLayout from '@/layouts/PageLayout.astro';
+import SectionLabel from '@/components/text/SectionLabel';
+import InfiniteScrollingGallery from '@/components/visuals/InfiniteScrollingGallery';
+import ExperienceCarousel from '@/components/carousel/ExperienceCarousel';
+import profile from '@/assets/profile.jpg';
+import TextButton from '@/components/TextButton';
+import ContactSection from '@/components/contact/ContactSection';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<RootLayout title="TaeHyun Kim">
+	<PageLayout activePath="/">
+		<section>
+			<div class="intro-container">
+				<div>
+					<SectionLabel label="Intro." />
+
+					<h1>Hello, I'm TaeHyun!</h1>
+					<p>People also call me Eric.</p>
+					<p>
+						Driven by a personal experience where my family was 
+						impacted by software security vulnerabilities, 
+						my mission as a software engineer is to build products 
+						that are scalable, efficient, and secure by design.
+					</p>
+					<p>
+						I bring this perspective to my work across the 
+						full stack–from building intuitive frontend applications, 
+						to engineering scalable backend services and orchestrated data pipelines, 
+						and developing the operational automation that 
+						keeps those systems secure and resilient.
+					</p>
+				</div>
+				<img src={profile.src} alt="profile" />
+			</div>
+		</section>
+		<section>
+			<div class="experience-container">
+				<SectionLabel label="Experience." />
+				<InfiniteScrollingGallery />
+				<ExperienceCarousel client:load />
+			</div>
+		</section>
+		<section>
+			<div class="skills-container">
+				<SectionLabel label="Skills." />
+				<p class="skills-description">
+					My goal is to use my skills on first party and cloud platforms to create software and systems 
+					that not only deliver value, but also protect the people and customers who depend on them!
+				</p>
+				<TextButton
+					text="View All Skills"
+					onClick={() => {}}
+					ariaLabel="View All Skills"
+				/>
+			</div>
+		</section>
+		<section>
+			<ContactSection />
+		</section>
+	</PageLayout>
+</RootLayout>
+
+<style>	
+	section {
+        margin: 24px 0px;
+    }
+
+    .intro-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+		gap: 24px;
+        justify-content: space-between;
+    }
+
+	.intro-container div {
+		flex: 1;
+	}
+
+	.intro-container img {
+		width: 250px;
+		height: 300px;
+		object-fit: cover;
+		border-radius: var(--radius);
+	}
+
+	.skills-description {
+		margin-bottom: 24px;
+		font-size: 16px;
+		line-height: 1.6;
+		color: var(--black);
+	}
+</style>
