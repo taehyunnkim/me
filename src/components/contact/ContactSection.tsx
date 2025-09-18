@@ -52,6 +52,18 @@ const ContactSection: React.FC = () => {
                             in/taehyunnkim
                         </a>
                     </div>
+                    <div className={styles.contactItem}>
+                        <h3 className={styles.contactLabel}>Github</h3>
+                        <a 
+                            href="https://github.com/taehyunnkim" 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.contactLink}
+                            aria-label="Visit TaeHyun Kim's Github profile"
+                        >
+                            @taehyunnkim
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

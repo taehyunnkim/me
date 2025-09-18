@@ -2,23 +2,14 @@ import styles from './SkillCard.module.css';
 
 interface SkillCardProps {
     title: string;
-    items: string[];
-    isEmpty?: boolean;
+    image: string;
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ title, items, isEmpty = false }) => {
-    if (isEmpty) {
-        return <div className={styles.skillCardEmpty}></div>;
-    }
-
+const SkillCard: React.FC<SkillCardProps> = ({ title, image }) => {
     return (
         <div className={styles.skillCard}>
-            <h3 className={styles.skillTitle}>{title}</h3>
-            <div className={styles.skillItems}>
-                {items.map((item, index) => (
-                    <span key={index} className={styles.skillItem}>{item}</span>
-                ))}
-            </div>
+            <img src={image} alt={title} />
+            <p className={styles.skillTitle}>{title}</p>
         </div>
     );
 };

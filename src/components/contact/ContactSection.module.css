@@ -44,16 +44,15 @@
 
 .contactLink {
     font-size: 16px;
-    color: var(--black);
-    text-decoration: underline;
-    text-decoration-color: #ccc;
+    color: var(--primary);
+    opacity: 0.8;
+    text-decoration: none;
     font-weight: 400;
     transition: all 0.2s ease;
 }
 
 .contactLink:hover {
-    text-decoration-color: var(--black);
-    color: var(--primary);
+    opacity: 1;
 }
 
 .contactLink:focus {
