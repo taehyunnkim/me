@@ -1,0 +1,36 @@
+.skillsFilterContainer {
+    position: relative;
+}
+
+.skillsFilterButton {
+    width: fit-content;
+    display: flex;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    align-items: center;
+    gap: 16px;
+    padding: 8px 12px;
+    background-color: var(--background-gray);
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.skillsFilterButton p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--black);
+    user-select: none;
+}
+
+.skillsFilter:hover {
+    background: white;
+    border-color: var(--primary);
+}
+
+.skillsFilterItemsContainer {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background-color: var(--background-gray);
+    padding: 16px 16px;
+}

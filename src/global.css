@@ -1,5 +1,6 @@
 :root {
     --border-color: #A0A0A0;
+    --gray: #A0A0A0;
     --black: #161616;
     --primary: #1942B3;
     --secondary: #4f62d9;
@@ -8,6 +9,7 @@
     --font-serif: 'Playfair Display', serif;
     --container-width: 900px;
     --background-gray: #fbfbfb;
+    --button-border-gray: rgb(182, 182, 182);
 }
 
 h1 {

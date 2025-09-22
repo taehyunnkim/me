@@ -3,7 +3,7 @@
     padding: 16px 16px;
     font-size: 14px;
     font-weight: 400;
-    background-color: white;
+    background-color: var(--background-gray);
     cursor: pointer;
     display: flex;
     flex-direction: row;
@@ -12,7 +12,7 @@
 }
 
 .skillCard:hover {
-    background-color: #fbfbfb;
+    background-color: white;
 }
 
 .skillCard img {

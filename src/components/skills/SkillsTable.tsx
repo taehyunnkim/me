@@ -6,11 +6,11 @@ import { skills } from '@/data/skills';
 const SkillsTable = () => {
     return (
         <div className={styles.skillsTable}>
-            {skills.map((skill) => (
+            {Object.keys(skills).map((skill) => (
                 <div className={styles.skillsTableGroup}>
-                    <h2 className={styles.skillsTableGroupTitle}>{skill.category}</h2>
+                    <h2 className={styles.skillsTableGroupTitle}>{skill}</h2>
                     <div className={styles.skillsTableGroupItems}>
-                        {skill.items.map((item) => (
+                        {skills[skill].map((item) => (
                             <SkillCard
                                 key={item.name}
                                 title={item.name}

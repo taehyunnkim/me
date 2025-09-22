@@ -1,0 +1,109 @@
+.skillsFilterModal {
+    position: absolute;
+    top: 115%;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    border-radius: var(--radius);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border: 1px solid rgb(214, 214, 214);
+    background-color: white;
+    z-index: 1000;
+    padding: 16px;
+    display: flex;
+    gap: 16px;
+    cursor: default;
+}
+
+.skillCategories {
+    width: 180px;
+    border-right: 1px solid var(--border-color);
+    padding-right: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.skillCategoryItems {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skillCategory {
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    background-color: var(--background-gray);
+    cursor: pointer;
+    border: 1px solid var(--button-border-gray);
+}
+
+.skillCategorySelected {
+    border: 1px solid var(--primary);
+}
+
+.skillCategory p {
+    font-size: 14px;
+}
+
+.skillCategory:hover {
+    border: 1px solid var(--primary);
+}
+
+.skillItems {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.skillItemsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    overflow-y: scroll; 
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius);
+    background-color: var(--background-gray);
+    padding: 16px;
+    gap: 12px;
+    height: 100%;
+}
+
+.skillItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--button-border-gray);
+    background-color: white;
+    cursor: pointer;
+}
+
+.skillItemSelected {
+    border: 1px solid var(--primary);
+}
+
+.skillItem:hover {
+    border: 1px solid var(--primary);
+}
+
+.skillItem p {
+    font-size: 14px;
+}
+
+
+.skillItem img {
+    height: 18px;
+}
+
+.skillItemCheckEmpty {
+    color: var(--gray);
+}
+
+.skillItemCheck {
+    color: var(--primary);
+}

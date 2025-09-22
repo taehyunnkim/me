@@ -1,9 +1,12 @@
 ---
 import RootLayout from '@/layouts/RootLayout.astro';
 import PageLayout from '@/layouts/PageLayout.astro';
+
+import SkillsFilter from '@/components/skills/SkillsFilter';
 ---
 
 <RootLayout title="TaeHyun Kim - Skills">
 	<PageLayout activePath="/skills">
+		<SkillsFilter client:load />
 	</PageLayout>
 </RootLayout>
