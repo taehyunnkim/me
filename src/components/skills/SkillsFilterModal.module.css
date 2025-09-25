@@ -43,6 +43,7 @@
 }
 
 .skillCategory p {
+    margin: 0;
     font-size: 14px;
 }
 
@@ -92,6 +93,7 @@
 }
 
 .skillItem p {
+    margin: 0;
     font-size: 14px;
 }
 

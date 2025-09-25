@@ -24,7 +24,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ( { activePath, title 
             
             <ul className={styles.navigationHeaderList}>
                 <li><a href="/" className={activePath === '/' ? styles.active : ''}>Home</a></li>
-                <li><a href="/skills" className={activePath === '/skills' ? styles.active : ''}>Skills</a></li>
+                <li><a href="/skills" className={activePath === '/skills' ? styles.active : ''}>Skills & Projects</a></li>
             </ul>
         </nav>
     );

@@ -1,0 +1,127 @@
+.skillsWithProjects {
+    width: 100%;
+}
+
+.filterSection {
+    margin-bottom: 24px;
+}
+
+.skillsFilterContainer {
+    position: relative;
+}
+
+.modalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.02);
+    z-index: 999;
+    cursor: pointer;
+}
+
+.skillsFilterButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    width: fit-content;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.skillsFilterButton:hover {
+    border-color: var(--primary);
+}
+
+.skillsFilterButton p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--black);
+}
+
+.skillsFilterItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.clearFiltersButton {
+    margin-top: 12px;
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background-color: white;
+    color: var(--black);
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.clearFiltersButton:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 24px 0;
+}
+
+.projectsSection {
+    margin-top: 24px;
+}
+
+.projectsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.projectsCount {
+    font-size: 14px;
+    color: #666;
+}
+
+.projectsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.noProjects {
+    text-align: center;
+    padding: 48px 24px;
+    background-color: var(--background-gray);
+    border-radius: var(--radius);
+    border: 1px dashed var(--border-color);
+}
+
+.noProjects p {
+    margin: 0 0 16px 0;
+    color: #666;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .projectsHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .projectsContainer {
+        grid-template-columns: 1fr;
+    }
+    
+    .skillsFilterItemsContainer {
+        margin-top: 12px;
+    }
+}

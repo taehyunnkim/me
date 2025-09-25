@@ -6,7 +6,7 @@ const { activePath } = Astro.props;
 ---
 
 <div class="master-container">
-    <NavigationHeader activePath={activePath} title={activePath === '/skills' ? 'Eric Kim' : ''} />
+    <NavigationHeader activePath={activePath} title={activePath === '/skills' ? '' : ''} />
     <div class="page-container">
         <slot />
     </div>

@@ -1,12 +1,49 @@
 ---
 import RootLayout from '@/layouts/RootLayout.astro';
 import PageLayout from '@/layouts/PageLayout.astro';
+import SkillsWithProjects from '@/components/skills/SkillsWithProjects';
+import { getAllProjects } from '@/utils/projects';
 
-import SkillsFilter from '@/components/skills/SkillsFilter';
+const projects = await getAllProjects();
 ---
 
-<RootLayout title="TaeHyun Kim - Skills">
+<RootLayout title="TaeHyun Kim - Skills & Projects">
 	<PageLayout activePath="/skills">
-		<SkillsFilter client:load />
+		<section class="page-intro">
+			<h1>Skills & Projects</h1>
+			<p>Explore my technical skills and see them in action through real projects. Use the filter to find projects that use specific technologies.</p>
+		</section>
+		<SkillsWithProjects projects={projects} client:load />
 	</PageLayout>
 </RootLayout>
+
+<style>
+	.page-intro {
+		margin-bottom: 32px;
+	}
+
+	.page-intro h1 {
+		font-family: var(--font-serif);
+		font-size: 28px;
+		font-weight: 600;
+		color: var(--black);
+		margin-bottom: 12px;
+	}
+
+	.page-intro p {
+		font-size: 16px;
+		color: #666;
+		line-height: 1.6;
+		max-width: 600px;
+	}
+
+	@media (max-width: 768px) {
+		.page-intro h1 {
+			font-size: 24px;
+		}
+		
+		.page-intro p {
+			font-size: 14px;
+		}
+	}
+</style>

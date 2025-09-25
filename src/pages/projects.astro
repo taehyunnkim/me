@@ -1,0 +1,89 @@
+---
+import RootLayout from '@/layouts/RootLayout.astro';
+import PageLayout from '@/layouts/PageLayout.astro';
+import SectionLabel from '@/components/text/SectionLabel';
+import ProjectCard from '@/components/projects/ProjectCard';
+import { getAllProjects, getFeaturedProjects } from '@/utils/projects';
+
+const allProjects = await getAllProjects();
+const featuredProjects = await getFeaturedProjects();
+---
+
+<RootLayout title="Projects - TaeHyun Kim">
+  <PageLayout activePath="/projects">
+    <section class="projects-intro">
+      <h1>My Projects</h1>
+      <p>A collection of professional and personal projects showcasing my skills in full-stack development, DevSecOps, and system architecture.</p>
+    </section>
+
+    {featuredProjects.length > 0 && (
+      <section class="featured-section">
+        <SectionLabel label="Featured Projects" />
+        <div class="projects-grid">
+          {featuredProjects.map((project) => (
+            <ProjectCard project={project} client:load />
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="all-projects-section">
+      <SectionLabel label="All Projects" />
+      <div class="projects-grid">
+        {allProjects.map((project) => (
+          <ProjectCard project={project} client:load />
+        ))}
+      </div>
+    </section>
+  </PageLayout>
+</RootLayout>
+
+<style>
+  .projects-intro {
+    margin-bottom: 48px;
+  }
+
+  .projects-intro h1 {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+
+  .projects-intro p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  .featured-section {
+    margin-bottom: 48px;
+  }
+
+  .all-projects-section {
+    margin-bottom: 48px;
+  }
+
+  .projects-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .projects-intro h1 {
+      font-size: 28px;
+    }
+    
+    .projects-intro p {
+      font-size: 16px;
+    }
+  }
+</style>
