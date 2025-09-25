@@ -8,11 +8,13 @@ import { PiCircleDashedLight } from "react-icons/pi";
 
 interface SkillsFilterModalProps {
     onClose: () => void;
+    removeSkill: (skill: SkillItem) => void;
+    addSkill: (skill: SkillItem) => void;
+    selectedSkills: Set<SkillItem>;
 }
 
-const SkillsFilterModal: React.FC<SkillsFilterModalProps> = ({ onClose }) => {
+const SkillsFilterModal: React.FC<SkillsFilterModalProps> = ({ onClose, removeSkill, addSkill, selectedSkills }) => {
     const [selectedCategory, setSelectedCategory] = useState<string>("Languages");
-    const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set());
     const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -32,16 +34,12 @@ const SkillsFilterModal: React.FC<SkillsFilterModalProps> = ({ onClose }) => {
         setSelectedCategory(category);
     }
 
-    const handleItemClick = (item: string) => {
-        const newSelectedItems = new Set(selectedItems);
-        
-        if (newSelectedItems.has(item)) {
-            newSelectedItems.delete(item);
+    const handleItemClick = (item: SkillItem) => {
+        if (selectedSkills.has(item)) {
+            removeSkill(item);
         } else {
-            newSelectedItems.add(item);
+            addSkill(item);
         }
-
-        setSelectedItems(newSelectedItems);
     }
 
     return (
@@ -64,12 +62,12 @@ const SkillsFilterModal: React.FC<SkillsFilterModalProps> = ({ onClose }) => {
                 <SectionLabel label="Skills" />
                 <div className={styles.skillItemsContainer}>
                     {skills[selectedCategory].map((item: SkillItem) => {
-                        const isSelected = selectedItems.has(item.name);
+                        const isSelected = selectedSkills.has(item);
                         return (
                             <div 
                                 key={item.name}
                                 className={`${styles.skillItem} ${isSelected ? styles.skillItemSelected : ''}`} 
-                                onClick={() => handleItemClick(item.name)}
+                                onClick={() => handleItemClick(item)}
                             >
                                 <img src={item.image} alt={item.name} />
                                 <p>{item.name}</p>
