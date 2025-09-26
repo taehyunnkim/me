@@ -1,5 +1,6 @@
 import styles from './ProjectCard.module.css';
 import type { Project } from '@/types/project';
+import { useState } from 'react';
 
 interface ProjectCardProps {
     project: Project;
@@ -13,10 +14,34 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         window.location.href = `/project/${project.slug}`;
     };
 
+    const getPlaceholderColor = (title: string) => {
+        const colors = [
+            '#4f62d9',
+            '#cc59c5',
+            '#ff639c'
+        ];
+        
+        return colors[Math.abs(title.length) % colors.length];
+    };
+
     return (
         <div className={styles.projectCard} onClick={handleClick}>
             <div className={styles.projectThumbnail}>
-                <img src={project.thumbnail} alt={project.title} />
+                {project.thumbnail ? (
+                    <img 
+                        src={project.thumbnail} 
+                        alt={project.title}
+                    />
+                ) : (
+                    <div 
+                        className={styles.placeholderThumbnail}
+                        style={{ backgroundColor: getPlaceholderColor(project.title) }}
+                    >
+                        <span className={styles.placeholderText}>
+                            {project.title}
+                        </span>
+                    </div>
+                )}
             </div>
             <div className={styles.projectContent}>
                 <div className={styles.projectHeader}>

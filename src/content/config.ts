@@ -5,8 +5,8 @@ const projectsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    thumbnail: z.string(),
-    tags: z.array(z.enum(['professional', 'personal', 'open-source', 'academic', 'freelance'])),
+    thumbnail: z.string().optional(),
+    tags: z.array(z.enum(['professional', 'personal', 'open-source', 'startup', 'freelance'])),
     skills: z.array(z.string()),
     date: z.string(),
     featured: z.boolean().optional(),

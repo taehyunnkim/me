@@ -30,7 +30,7 @@ export const skills: Skills = {
             image: "/skills/sql.png"
         },
         {
-            name: "GoLang",
+            name: "Go",
             image: "/skills/go.png"
         },
         {
@@ -41,6 +41,14 @@ export const skills: Skills = {
             name: "Ruby",
             image: "/skills/ruby.png"
         },
+        {
+            name: "R",
+            image: "/skills/r.png"
+        },
+        {
+            name: "C++",
+            image: "/skills/cpp.png"
+        }
     ],
     "Tools & Technologies": [
         {
@@ -174,6 +182,14 @@ export const skills: Skills = {
         {
             name: "Wireguard",
             image: "/skills/wireguard.png"
+        },
+        {
+            name: "Firebase",
+            image: "/skills/firebase.png"
+        },
+        {
+            name: "Tableau",
+            image: "/skills/tableau.png"
         }
     ],
     "Other Skills": [

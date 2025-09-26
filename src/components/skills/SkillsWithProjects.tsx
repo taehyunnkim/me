@@ -7,6 +7,7 @@ import SkillsFilterItem from './SkillsFilterItem';
 import ProjectCard from '@/components/projects/ProjectCard';
 import SectionLabel from '@/components/text/SectionLabel';
 import { IoFilterSharp } from "react-icons/io5";
+import TextButton from '../TextButton';
 
 interface SkillsWithProjectsProps {
     projects: Project[];
@@ -86,16 +87,17 @@ const SkillsWithProjects: React.FC<SkillsWithProjectsProps> = ({ projects }) => 
             {/* Skills Filter Section */}
             <div className={styles.filterSection}>
                 <div className={styles.skillsFilterContainer}>
-                    <div className={styles.skillsFilterButton} onClick={onFilterClick}>
-                        <p>Select skills</p>
-                        <IoFilterSharp size={16} color="var(--button-border-gray)" />
-                    </div>
-                        {isOpen && (
-                            <>
-                                <div className={styles.modalBackdrop} onClick={closeModal}></div>
-                                <SkillsFilterModal onClose={closeModal} removeSkill={removeSkill} addSkill={addSkill} selectedSkills={selectedSkills} />
-                            </>
-                        )}
+                    <TextButton 
+                        text="Select skills" 
+                        onClick={onFilterClick} 
+                        icon={<IoFilterSharp size={16} color="var(--button-border-gray)" />} 
+                    />
+                    {isOpen && (
+                        <>
+                            <div className={styles.modalBackdrop} onClick={closeModal}></div>
+                            <SkillsFilterModal onClose={closeModal} removeSkill={removeSkill} addSkill={addSkill} selectedSkills={selectedSkills} />
+                        </>
+                    )}
                 </div>
                 <div className={styles.skillsFilterItemsContainer}>
                     {Array.from(selectedSkills).map((skill) => (
@@ -103,9 +105,10 @@ const SkillsWithProjects: React.FC<SkillsWithProjectsProps> = ({ projects }) => 
                     ))}
                 </div>
                 {selectedSkills.size > 0 && (
-                    <button className={styles.clearFiltersButton} onClick={clearAllFilters}>
-                        Clear all filters
-                    </button>
+                    <TextButton 
+                        text="Clear all filters" 
+                        onClick={clearAllFilters}  
+                    />
                 )}
             </div>
 
@@ -132,9 +135,10 @@ const SkillsWithProjects: React.FC<SkillsWithProjectsProps> = ({ projects }) => 
                 ) : (
                     <div className={styles.noProjects}>
                         <p>No projects found using the selected skills.</p>
-                        <button className={styles.clearFiltersButton} onClick={clearAllFilters}>
-                            Clear filters to see all projects
-                        </button>
+                        <TextButton 
+                            text="Clear filters to see all projects" 
+                            onClick={clearAllFilters} 
+                        />
                     </div>
                 )}
             </div>
