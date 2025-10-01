@@ -1,18 +1,20 @@
 import styles from './SkillCard.module.css';
 
 interface SkillCardProps {
+    image?: string;
     title: string;
-    image: string;
     onClick?: () => void;
+    icon?: React.ReactNode;
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ title, image, onClick }) => {
+const SkillCard = ({ image, title, onClick, icon }: SkillCardProps) => {
     return (
-        <div className={styles.skillCard} onClick={onClick} style={{ cursor: onClick ? 'pointer' : 'default' }}>
-            <img src={image} alt={title} />
-            <p className={styles.skillTitle}>{title}</p>
+        <div className={`${styles.skillsFilterItem} ${onClick ? styles.clickable : styles.nonClickable}`} onClick={onClick}>
+            { image ? <img src={image} alt={title} /> : null }
+            <p>{title}</p>
+            { icon ?  icon : null }
         </div>
-    );
-};
+    )
+}
 
 export default SkillCard;

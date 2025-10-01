@@ -3,11 +3,12 @@ import { skills, type SkillItem } from '@/data/skills';
 import type { Project } from '@/types/project';
 import styles from './SkillsWithProjects.module.css';
 import SkillsFilterModal from './SkillsFilterModal';
-import SkillsFilterItem from './SkillsFilterItem';
+import SkillCard from './SkillCard';
 import ProjectCard from '@/components/projects/ProjectCard';
 import SectionLabel from '@/components/text/SectionLabel';
 import { IoFilterSharp } from "react-icons/io5";
 import TextButton from '../TextButton';
+import { FaXmark } from 'react-icons/fa6';
 
 interface SkillsWithProjectsProps {
     projects: Project[];
@@ -101,7 +102,7 @@ const SkillsWithProjects: React.FC<SkillsWithProjectsProps> = ({ projects }) => 
                 </div>
                 <div className={styles.skillsFilterItemsContainer}>
                     {Array.from(selectedSkills).map((skill) => (
-                        <SkillsFilterItem key={skill.name} image={skill.image} title={skill.name} onClick={() => removeSkill(skill)} />
+                        <SkillCard key={skill.name} image={skill.image} title={skill.name} onClick={() => removeSkill(skill)} icon={<FaXmark />} />
                     ))}
                 </div>
                 {selectedSkills.size > 0 && (

@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import RootLayout from '@/layouts/RootLayout.astro';
 import PageLayout from '@/layouts/PageLayout.astro';
+import SkillCard from '@/components/skills/SkillCard';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -39,7 +40,7 @@ const { Content } = await project.render();
           <h3>Technologies Used:</h3>
           <div class="skills-list">
             {project.data.skills.map((skill: string) => (
-              <span class="skill-tag">{skill}</span>
+              <SkillCard title={skill} />
             ))}
           </div>
         </div>

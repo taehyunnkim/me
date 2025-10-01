@@ -1,9 +1,9 @@
-import styles from './SkillsTable.module.css';
-import SkillCard from './SkillCard';
+import styles from './SkillTable.module.css';
+import SkillTableItem from './SkillTableItem';
 import { skills, type SkillItem } from '@/data/skills';
 
 
-const SkillsTable = () => {
+const SkillTable = () => {
     const handleSkillClick = (skill: SkillItem) => {
         // Navigate to skills page with the selected skill name
         window.location.href = `/skills?skill=${encodeURIComponent(skill.name)}`;
@@ -15,7 +15,7 @@ const SkillsTable = () => {
                     <h2 className={styles.skillsTableGroupTitle}>{skill}</h2>
                     <div className={styles.skillsTableGroupItems}>
                         {skills[skill].map((item) => (
-                            <SkillCard
+                            <SkillTableItem
                                 key={item.name}
                                 title={item.name}
                                 image={item.image}
@@ -29,4 +29,4 @@ const SkillsTable = () => {
     )
 }
 
-export default SkillsTable;
+export default SkillTable;

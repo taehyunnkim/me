@@ -1,6 +1,7 @@
 import styles from './SkillsFilterModal.module.css';
 import { skills, type SkillItem } from '@/data/skills';
 import SectionLabel from '@/components/text/SectionLabel';
+import SkillCard from '@/components/skills/SkillCard';
 import { useState, useEffect, useRef } from 'react';
 import { FaCircleCheck } from 'react-icons/fa6';
 import { PiCircleDashedLight } from "react-icons/pi";
@@ -62,18 +63,13 @@ const SkillsFilterModal: React.FC<SkillsFilterModalProps> = ({ onClose, removeSk
                 <SectionLabel label="Skills" />
                 <div className={styles.skillItemsContainer}>
                     {skills[selectedCategory].map((item: SkillItem) => {
-                        const isSelected = selectedSkills.has(item);
-                        return (
-                            <div 
-                                key={item.name}
-                                className={`${styles.skillItem} ${isSelected ? styles.skillItemSelected : ''}`} 
-                                onClick={() => handleItemClick(item)}
-                            >
-                                <img src={item.image} alt={item.name} />
-                                <p>{item.name}</p>
-                                {isSelected ? <FaCircleCheck className={styles.skillItemCheck} /> : <PiCircleDashedLight className={styles.skillItemCheckEmpty} />}
-                            </div>
-                        );
+                        return <SkillCard
+                            key={item.name}
+                            image={item.image} 
+                            title={item.name} 
+                            icon={selectedSkills.has(item) ? <FaCircleCheck className={styles.skillItemCheck}/> : <PiCircleDashedLight className={styles.skillItemCheckEmpty} />}
+                            onClick={() => {handleItemClick(item)}}
+                        />
                     })}
                 </div>
             </div>
