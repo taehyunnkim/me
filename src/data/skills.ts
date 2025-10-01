@@ -18,6 +18,10 @@ export const skills: Skills = {
             image: "/skills/typescript.png"
         },
         {
+            name: "Javascript",
+            image: "/skills/javascript.png"
+        },
+        {
             name: "Java",
             image: "/skills/java.svg"
         },
