@@ -1,28 +1,13 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Project } from '@/types/project';
-import { existsSync } from 'fs';
-import { join } from 'path';
+import { resolveThumbnailPath } from '@/utils/thumbnails';
 
 export async function getAllProjects(): Promise<Project[]> {
   const projects = await getCollection('projects');
   
   return projects.map((project: CollectionEntry<'projects'>) => {
     const projectId = project.id.split('/').pop() || project.id;
-    
-    let thumbnailPath = project.data.thumbnail;
-    
-    if (!thumbnailPath) {
-      const extensions = ['jpg', 'jpeg', 'png', 'webp'];
-      const publicDir = join(process.cwd(), 'public', 'projects', projectId);
-      
-      for (const ext of extensions) {
-        const thumbnailFile = join(publicDir, `thumbnail.${ext}`);
-        if (existsSync(thumbnailFile)) {
-          thumbnailPath = `/projects/${projectId}/thumbnail.${ext}`;
-          break;
-        }
-      }
-    }
+    const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
     
     return {
       id: projectId,

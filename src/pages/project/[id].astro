@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry, render } from 'astro:content';
 import RootLayout from '@/layouts/RootLayout.astro';
 import PageLayout from '@/layouts/PageLayout.astro';
 import SkillCard from '@/components/skills/SkillCard';
+import { resolveThumbnailPath } from '@/utils/thumbnails';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -18,6 +19,10 @@ interface Props {
 
 const { project }: Props = Astro.props;
 const { Content } = await render( project );
+
+// Get thumbnail path using centralized utility
+const projectId = project.id.split('/').pop() || project.id;
+const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
 ---
 
 <RootLayout title={`${project.data.title} - TaeHyun Kim`}>
@@ -34,7 +39,13 @@ const { Content } = await render( project );
         </div>
 
         <div class="project-thumbnail">
-          <img src={project.data.thumbnail} alt={project.data.title} />
+          {thumbnailPath ? (
+            <img src={thumbnailPath} alt={project.data.title} />
+          ) : (
+            <div class="project-thumbnail-placeholder">
+              <span class="placeholder-text">{project.data.title}</span>
+            </div>
+          )}
         </div>
         
         <h1 class="project-title">{project.data.title}</h1>
@@ -181,6 +192,24 @@ const { Content } = await render( project );
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  .project-thumbnail-placeholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #4f62d9, #cc59c5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .placeholder-text {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   .project-content {
