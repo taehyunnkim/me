@@ -11,6 +11,7 @@ const projects = defineCollection({
     skills: z.array(z.string()),
     date: z.string(),
     featured: z.boolean().optional(),
+    link: z.string().optional(),
   }),
 });
 

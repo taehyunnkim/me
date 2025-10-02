@@ -4,6 +4,7 @@ import RootLayout from '@/layouts/RootLayout.astro';
 import PageLayout from '@/layouts/PageLayout.astro';
 import SkillCard from '@/components/skills/SkillCard';
 import { resolveThumbnailPath } from '@/utils/thumbnails';
+import TextButton from '@/components/TextButton';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -48,9 +49,20 @@ const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
           )}
         </div>
         
-        <h1 class="project-title">{project.data.title}</h1>
-        <p class="project-description">{project.data.description}</p>
-        
+        <div class="project-header-container">
+          <div>
+            <h1 class="project-title">{project.data.title}</h1>
+            <p class="project-description">{project.data.description}</p>
+          </div>
+          {project.data.link && (
+            <TextButton 
+              client:load 
+              text="View Project" 
+              href={project.data.link}
+            />
+          )}
+        </div>
+
         <div class="project-skills">
           <h3>Technologies</h3>
           <div class="skills-list">
@@ -62,6 +74,7 @@ const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
 
         <hr />
       </header>
+      
       <div class="project-content">
         <Content />
       </div>
@@ -74,6 +87,16 @@ const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 24px 0;
+  }
+
+  .project-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .project-header-container div {
+    flex: 1;
   }
 
   .project-header {
@@ -146,7 +169,7 @@ const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
     font-size: 32px;
     font-weight: 600;
     color: var(--black);
-    margin: 16px 0;
+    margin: 0 0 16px 0;
   }
 
   .project-description {
@@ -157,6 +180,7 @@ const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
   }
 
   .project-skills {
+    margin-top: 24px;
     margin-bottom: 24px;
   }
 
@@ -211,6 +235,7 @@ const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
   .placeholder-text {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
+
 
   .project-content {
     line-height: 1.7;

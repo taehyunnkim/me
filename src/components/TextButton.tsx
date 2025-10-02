@@ -1,18 +1,27 @@
 import styles from './TextButton.module.css';
+import { GoLinkExternal } from "react-icons/go";
 
 interface TextButtonProps {
     text: string;
-    onClick: () => void;
+    onClick?: () => void;
     ariaLabel?: string;
     icon?: React.ReactNode;
+    href?: string; // For external links
 }
 
-const TextButton: React.FC<TextButtonProps> = ({ text, onClick, ariaLabel, icon }) => { 
+const TextButton: React.FC<TextButtonProps> = ({ text, onClick, ariaLabel, icon, href }) => { 
     
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         e.stopPropagation();
-        onClick();
+        
+        if (href) {
+            // Handle external link
+            window.open(href, '_blank', 'noopener,noreferrer');
+        } else if (onClick) {
+            // Handle custom onClick
+            onClick();
+        }
     };
 
     return (
@@ -22,7 +31,7 @@ const TextButton: React.FC<TextButtonProps> = ({ text, onClick, ariaLabel, icon 
             aria-label={ariaLabel}
         >
             {text}
-            {icon}
+            {href ? <GoLinkExternal /> : icon}
         </button>
     )
 }

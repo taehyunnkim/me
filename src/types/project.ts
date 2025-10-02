@@ -7,6 +7,7 @@ export interface Project {
     skills: string[]; // skill names that match our skills data
     featured?: boolean;
     date: string;
+    link?: string;
 }
 
 export type ProjectTag = 'professional' | 'personal' | 'open-source' | 'academic' | 'freelance' | 'startup' | 'ongoing' | 'archived' | 'completed';

@@ -226,7 +226,7 @@ export const skills: Skills = {
             image: "/skills/security.png"
         },
         {
-            name: "Networking Security",
+            name: "Network Security",
             image: "/skills/security.png"
         },
         {

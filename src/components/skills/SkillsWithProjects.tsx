@@ -102,7 +102,7 @@ const SkillsWithProjects: React.FC<SkillsWithProjectsProps> = ({ projects }) => 
                 </div>
                 <div className={styles.skillsFilterItemsContainer}>
                     {Array.from(selectedSkills).map((skill) => (
-                        <SkillCard key={skill.name} image={skill.image} title={skill.name} onClick={() => removeSkill(skill)} icon={<FaXmark />} />
+                        <SkillCard key={skill.name} title={skill.name} onClick={() => removeSkill(skill)} icon={<FaXmark />} />
                     ))}
                 </div>
                 {selectedSkills.size > 0 && (

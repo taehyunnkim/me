@@ -17,7 +17,8 @@ export async function getAllProjects(): Promise<Project[]> {
       tags: project.data.tags,
       skills: project.data.skills,
       featured: project.data.featured || false,
-      date: project.data.date
+      date: project.data.date,
+      link: project.data.link
     };
   }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }

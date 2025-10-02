@@ -65,7 +65,6 @@ const SkillsFilterModal: React.FC<SkillsFilterModalProps> = ({ onClose, removeSk
                     {skills[selectedCategory].map((item: SkillItem) => {
                         return <SkillCard
                             key={item.name}
-                            image={item.image} 
                             title={item.name} 
                             icon={selectedSkills.has(item) ? <FaCircleCheck className={styles.skillItemCheck}/> : <PiCircleDashedLight className={styles.skillItemCheckEmpty} />}
                             onClick={() => {handleItemClick(item)}}
