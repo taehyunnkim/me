@@ -2,7 +2,7 @@
 import RootLayout from '@/layouts/RootLayout.astro';
 import PageLayout from '@/layouts/PageLayout.astro';
 import SkillsWithProjects from '@/components/skills/SkillsWithProjects';
-import { getAllProjects } from '@/utils/projects';
+import { getAllProjects } from '@/content/collection';
 
 const projects = await getAllProjects();
 ---

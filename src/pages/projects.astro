@@ -3,7 +3,7 @@ import RootLayout from '@/layouts/RootLayout.astro';
 import PageLayout from '@/layouts/PageLayout.astro';
 import SectionLabel from '@/components/text/SectionLabel';
 import ProjectCard from '@/components/projects/ProjectCard';
-import { getAllProjects, getFeaturedProjects } from '@/utils/projects';
+import { getAllProjects, getFeaturedProjects } from '@/content/collection';
 
 const allProjects = await getAllProjects();
 const featuredProjects = await getFeaturedProjects();

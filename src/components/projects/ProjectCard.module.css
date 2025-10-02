@@ -103,7 +103,7 @@
     color: #388e3c;
 }
 
-.projectTag.startup {
+.projectTag.startup, .projectTag.ongoing {
     background-color: #fff3e0;
     color: #f57c00;
 }
@@ -111,6 +111,16 @@
 .projectTag.open-source {
     background-color: #fce4ec;
     color: #c2185b;
+}
+
+.projectTag.archived {
+    background-color: #eeeeee;
+    color: #171717;
+}
+
+.projectTag.completed {
+    background-color: #e8f5e8;
+    color: #388e3c;
 }
 
 .projectDescription {

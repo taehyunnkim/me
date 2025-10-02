@@ -80,6 +80,10 @@ export const skills: Skills = {
             image: "/skills/nextjs.svg"
         },
         {
+            name: "Express.js",
+            image: "/skills/javascript.png"
+        },
+        {
             name: "Astro",
             image: "/skills/astro.svg"
         },

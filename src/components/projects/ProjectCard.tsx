@@ -7,11 +7,16 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+    const [imageError, setImageError] = useState(false);
     const displaySkills = project.skills.slice(0, 3);
     const hasMoreSkills = project.skills.length > 3;
 
     const handleClick = () => {
-        window.location.href = `/project/${project.slug}`;
+        window.location.href = `/project/${project.id}`;
+    };
+
+    const handleImageError = () => {
+        setImageError(true);
     };
 
     const getPlaceholderColor = (title: string) => {
@@ -27,10 +32,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return (
         <div className={styles.projectCard} onClick={handleClick}>
             <div className={styles.projectThumbnail}>
-                {project.thumbnail ? (
+                {project.thumbnail && !imageError ? (
                     <img 
                         src={project.thumbnail} 
                         alt={project.title}
+                        onError={handleImageError}
                     />
                 ) : (
                     <div 
