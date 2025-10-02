@@ -8,6 +8,7 @@ export interface Project {
     featured?: boolean;
     date: string;
     link?: string;
+    github?: string;
 }
 
 export type ProjectTag = 'professional' | 'personal' | 'open-source' | 'academic' | 'freelance' | 'startup' | 'ongoing' | 'archived' | 'completed';

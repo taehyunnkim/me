@@ -54,13 +54,22 @@ const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
             <h1 class="project-title">{project.data.title}</h1>
             <p class="project-description">{project.data.description}</p>
           </div>
-          {project.data.link && (
-            <TextButton 
-              client:load 
-              text="View Project" 
-              href={project.data.link}
-            />
-          )}
+          <div class="project-header-buttons">
+            {project.data.link && (
+              <TextButton 
+                client:load 
+                text="View Project" 
+                href={project.data.link}
+              />
+            )}
+            {project.data.github && (
+              <TextButton 
+                client:load 
+                text="GitHub Repository" 
+                href={project.data.github}
+              />
+            )}
+          </div>
         </div>
 
         <div class="project-skills">
@@ -89,14 +98,16 @@ const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
     padding: 24px 0;
   }
 
+  .project-header-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
   .project-header-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-  }
-
-  .project-header-container div {
-    flex: 1;
   }
 
   .project-header {
@@ -210,10 +221,17 @@ const thumbnailPath = resolveThumbnailPath(projectId, project.data.thumbnail);
     margin-bottom: 32px;
     border-radius: var(--radius);
     overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  }
+
+  .project-thumbnail {
+    background-color: var(--background-gray);
   }
 
   .project-thumbnail img {
     width: 100%;
+    max-height: 400px;
+    object-fit: cover;
     height: auto;
     display: block;
   }

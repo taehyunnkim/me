@@ -5,4 +5,6 @@ tags: ["freelance", "completed"]
 skills: ["Javascript", "React"]
 date: "2021-03-01"
 featured: false
+github: https://github.com/taehyunnkim/JungDam
+link: https://jungdamdosirak.co.kr
 ---

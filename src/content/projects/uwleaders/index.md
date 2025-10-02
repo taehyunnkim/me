@@ -5,4 +5,6 @@ tags: ["personal", "archived"]
 skills: ["Javascript", "React", "Firebase"]
 date: "2020-04-01"
 featured: false
+link: https://taehyunnkim.github.io/UWLeaders/#/UWLeaders
+github: https://github.com/taehyunnkim/UWLeaders
 ---

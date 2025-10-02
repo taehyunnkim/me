@@ -20,7 +20,7 @@
     width: 100%;
     height: 200px;
     overflow: hidden;
-    background-color: var(--background-gray);
+    background-color: white;
 }
 
 .projectThumbnail img {
